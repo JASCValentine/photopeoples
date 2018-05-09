@@ -121,48 +121,37 @@
       <h2>Enter Username and Password</h2> 
       <div class = "container form-signin">
          
-         <?php
-            $msg = '';
-            
-            if (isset($_POST['login']) && !empty($_POST['username']) 
-               && !empty($_POST['password'])) {
-				
-$db_exists = file_exists("db/photopeoples.sqlite");
-$db = new PDO('sqlite:db/photopeoples.sqlite');
-$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
-				
-$query = "select name, cust_id from customer where name=:name and password=:password and status='active'";
+<?php
+$msg = '';
 
-$stmt = $db->prepare($query);
+if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['password'])) {
+	$db_exists = file_exists("db/photopeoples.sqlite");
+	$db = new PDO('sqlite:db/photopeoples.sqlite');
+	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
 
-$stmt->bindParam(':name', $_POST['username']);
-$stmt->bindParam(':password', $_POST['password']);
-$stmt->execute();
-$result = $stmt->fetchAll();
+	$query = "select name, cust_id, password from customer where name=:name and status='active'";
 
-$username = "";
+	$stmt = $db->prepare($query);
 
-foreach($result as $row) {
-  $username = $row['name'];
-  $cust_id = $row['cust_id'];  
+	$stmt->bindParam(':name', $_POST['username']);
+	$stmt->execute();
+	$result = $stmt->fetch();
+
+	if ($result && password_verify($_POST['password'], $result['password'])) {
+		$username = $result['name'];
+		$cust_id = $result['cust_id'];
+		
+		$_SESSION['valid'] = true;
+		$_SESSION['timeout'] = time();
+		$_SESSION['username'] = $username;
+		$_SESSION['cust_id'] = $cust_id;
+		echo "<script>window.location.replace('".(isset($_POST['ref']) ? htmlspecialchars($_POST['ref']) : 'index.php')."')</script>";
+		//echo 'You have entered valid use name and password';
+	} else {
+		$msg = 'Wrong username or password';
+	}
 }
-				
-               if ($username!="") {
-                  $_SESSION['valid'] = true;
-                  $_SESSION['timeout'] = time();
-                  $_SESSION['username'] = $username;
-                  $_SESSION['cust_id'] = $cust_id;                  
-                 
-				//echo "<script>window.location.replace('event_details.php?ref=".$_POST['ref']."')</script>";
-				echo "<script>window.location.replace('".(isset($_POST['ref']) ? htmlspecialchars($_POST['ref']) : 'index.php')."')</script>";
-
-                  
-                  //echo 'You have entered valid use name and password';
-               }else {
-                  $msg = 'Wrong username or password';
-               }
-            }
-         ?>
+?>
       </div> <!-- /container -->
       
       <div class = "container">

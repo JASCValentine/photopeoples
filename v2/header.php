@@ -18,7 +18,7 @@
     	echo "<div class=\"clear\"></div>";
     }else{
 ?>
-	<a id="btn_register" href="#" ></a>
+	<a id="btn_register" href="register.php" ></a>
 	<a id="btn_login" href="login.php?ref=<?php echo htmlspecialchars($_SERVER['REQUEST_URI']) ?>"></a>
 	
 	<a href="pho_login.php">Photographer login</a> |

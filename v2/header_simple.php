@@ -12,7 +12,7 @@
     	echo "<form action=\"logout.php\" method=\"POST\" style=\"display: inline\"><a href=\"#\" onclick=\"$(this).closest('form').submit()\">Logout</a></form>";
     }else{
 ?>
-	<a id="btn_register" href="#" ></a>
+	<a id="btn_register" href="register.php" ></a>
 	<a id="btn_login" href="login.php?ref=<?php echo htmlspecialchars($_SERVER['REQUEST_URI']) ?>"></a>
 		<div class="clear"></div>
 <?php    

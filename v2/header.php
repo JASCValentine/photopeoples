@@ -12,10 +12,9 @@
 
 	if (isset($_SESSION['username'])){
     	echo "Hello, ".htmlspecialchars($_SESSION['username']);
-    	//echo "<form action=logout.php><button>Logout</button></form>";
     	echo " | <a href=\"myreservation.php\">My Reservation</a>";
-    	echo " | <a href=\"mymessage.php\">My Message</a>";    	
-    	echo " | <a href=\"logout.php\">Logout</a>";
+    	echo " | <a href=\"mymessage.php\">My Message</a>";
+    	echo " | <form action=\"logout.php\" method=\"POST\" style=\"display: inline\"><a href=\"#\" onclick=\"$(this).closest('form').submit()\">Logout</a></form>";
     	echo "<div class=\"clear\"></div>";
     }else{
 ?>

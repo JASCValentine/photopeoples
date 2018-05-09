@@ -9,7 +9,7 @@
 
 	if (isset($_SESSION['username'])){
     	echo "Hello, ".htmlspecialchars($_SESSION['username']);
-    	echo "<form action=logout.php><button>Logout</button></form>";
+    	echo "<form action=\"logout.php\" method=\"POST\" style=\"display: inline\"><a href=\"#\" onclick=\"$(this).closest('form').submit()\">Logout</a></form>";
     }else{
 ?>
 	<a id="btn_register" href="#" ></a>

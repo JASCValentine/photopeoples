@@ -1,0 +1,115 @@
+<style>
+		body{
+			font-size:12px;
+			color:#757575;
+		}
+		a{font-size:12px;color:#757575;text-decoration:none;}
+		a:hover{text-decoration:underline;}
+		.clear{clear:both;}
+		#mainContainer{
+			margin-left:auto;
+			margin-right:auto;
+			width:1000px;
+			/*background-color:#00FF00;*/
+		}
+		#footer{
+			border-top:2px solid #84CABA;
+			padding:10px;
+		}
+		#header{
+		border-bottom:2px solid #84CABA;
+		}
+		#logoContainer{
+			display:block;
+			float:left;
+			width:170px;
+			height:9px;
+		}
+		#logo{
+			margin-left:auto;
+			margin-right:auto;
+			margin-top:5px;
+			width:116px;
+			height:70px;
+			background-image: url("../images/logo.jpg");
+   			background-color: #FFFFFF;	
+		}
+		#menuContainer{
+			float:left;
+			display:block;
+			width:828px;
+		}
+		#menuContainer a{font-size:12px;color:#757575;text-decoration:none;}
+		#menuContainer a:hover{text-decoration:underline;}
+		#menuLeft{float:left;position: relative;}
+		#menuRight{float:right;}
+		#menuBottom ul {
+    			list-style-type: none;
+    			margin: 0;
+    			padding: 0;
+		}
+		#menuBottom li { float:left;}
+		#menuBottom li a {
+    		display: block;
+    		width: 60px;
+		}
+		/*#menu1{
+			margin-top:30px;
+			margin-left:50px;
+			float:left;
+		}
+		#menu1 a{margin-left:20px;}*/
+		#menu2{
+			display:block;
+			float:right;
+		}
+		#btn_register{
+			display:block;
+			cursor:pointer;
+			float:right;
+			height:25px;
+			width:65px;
+			background: url("../images/btn_register.jpg") no-repeat scroll 0 0 ;;
+		}
+		#btn_login{
+			display:block;
+			cursor:pointer;
+			float:right;
+			height:25px;
+			width:65px;
+			background: url("../images/btn_login.jpg") no-repeat scroll 0 0 ;;
+		}		
+		#menu3{
+			float:right;
+			margin-top:10px;
+		}		
+		#searchBarContainer{
+			margin-top:10px;
+			background-color:#84CABA;
+			padding-top:3px;
+			padding-bottom:3px;
+			padding-left:20px;
+		}
+		#searchBarContainer input{
+			margin-right:10px;
+		}
+		#searchBarContainer select{
+			margin-right:10px;
+		}	
+		
+		#mainContent{
+			padding:10px 0 10px 0;
+			height:auto;
+			color:#757575;
+			min-height:450px;
+		}
+		#mainContent .event{float:left;display:block;margin-right:50px;margin-bottom:20px;margin-top:20px;}
+		#mainContent .event_left{margin-right:0px;}
+		#mainContent .event img {width:300px;margin-bottom:10px;}
+		#mainContent .event .heading_city{font-size:16px;font-family:Arial;}
+		#mainContent .event .heading_subject{font-size:20px;}
+		#mainContent .event .heading_price{font-size: 14px;}
+		#mainContent .event .rating{margin-top:5px;}
+		#mainContent .event .rating svg{float:left;color:#f9df00;}
+		#mainContent .event .rating_number{margin-left:10px;}
+	</style>

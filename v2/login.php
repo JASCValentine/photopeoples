@@ -3,7 +3,7 @@
    session_start();
    $db_exists = file_exists("db/photopeoples.sqlite");
    
-   /*echo $_SERVER[DOCUMENT_ROOT]."/photopeoples/cal/daypilot.sqlite"."<br />";
+   /*echo $_SERVER['DOCUMENT_ROOT']."/photopeoples/cal/daypilot.sqlite"."<br />";
    echo "X".$db_exists."X";
    if ($db_exists){
    echo "A";

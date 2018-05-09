@@ -21,12 +21,12 @@ $count =0;
 
 foreach($result as $row) {
 
-$pho_name = $row[name];
+$pho_name = $row['name'];
 
-//echo $row[name]."<br />";
-//echo $row[nationalty]."<br />";
-//echo $row[naexperienceme]."<br />";
-//echo $row[style]."<br />";
+//echo $row['name']."<br />";
+//echo $row['nationalty']."<br />";
+//echo $row['naexperienceme']."<br />";
+//echo $row['style']."<br />";
   $count++;
   /*
   $query2 = "select * from extra_serviecs";

@@ -27,7 +27,7 @@ $messageContent.="<div class=css_td>From</div>\n";
 	$result2 = $stmt2->fetchAll();
 
 	foreach($result2 as $row2) {
-		$pho_name = $row2[name];
+		$pho_name = $row2['name'];
 	}
 $messageContent.="<div class=css_td>".$pho_name."</div>\n";
 $messageContent.="<div class=css_td>".$row['content']."</div>\n";

@@ -14,7 +14,7 @@ $username = "";
 $count =0;
 foreach($result as $row) {
   $count++;
-  echo $row[name]."<br />";
+  echo $row['name']."<br />";
 /*  
   $query2 = "select AVG(rating), COUNT(rating) from review where pho_id= ".$row['pho_id'];
   $stmt2 = $db->prepare($query2);

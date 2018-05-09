@@ -33,11 +33,11 @@
 	$result = $stmt->fetchAll();
 
 	foreach($result as $row) {
-		if($row[price_type]==1){
-			$hourlyRate = $row[price];
+		if($row['price_type']==1){
+			$hourlyRate = $row['price'];
 		}
-		if($row[price_type]==2){
-			$dailyRate = $row[price];
+		if($row['price_type']==2){
+			$dailyRate = $row['price'];
 		}
 	}
 	/*
@@ -61,10 +61,10 @@
 	$reviewContent="";
 	foreach($result as $row) {		
 		$reviewContent.="<div style=\"display:block;border-bottom:1px solid #C0C0C0;padding:10px 0 20px 0\">\n";
-		$reviewContent.="<img src=\"".$row[profile_pic]."\">\n";
-		$reviewContent.="<span class=\"reviewerName\">".$row[name]."</span><br/>\n";
-		$reviewContent.=$row[reviewDate]."<br /><br />\n";
-		$reviewContent.=$row[comment]."\n";
+		$reviewContent.="<img src=\"".$row['profile_pic']."\">\n";
+		$reviewContent.="<span class=\"reviewerName\">".$row['name']."</span><br/>\n";
+		$reviewContent.=$row['reviewDate']."<br /><br />\n";
+		$reviewContent.=$row['comment']."\n";
 		$reviewContent.="</div>\n";
 	}	
 	

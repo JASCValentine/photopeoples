@@ -36,7 +36,7 @@ $stmt->execute();
 	$result2 = $stmt2->fetchAll();
 
 	foreach($result2 as $row2) {
-		$pho_name = $row2[name];
+		$pho_name = $row2['name'];
 	}
 
 

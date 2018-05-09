@@ -7,13 +7,13 @@
 							
 <?php	
 
-	if ($_SESSION['username']!=""){					
-    	echo "Hello, ".$_SESSION['username'];		
+	if (isset($_SESSION['username'])){
+    	echo "Hello, ".htmlspecialchars($_SESSION['username']);
     	echo "<form action=logout.php><button>Logout</button></form>";
     }else{
 ?>
 	<a id="btn_register" href="#" ></a>
-	<a id="btn_login" href="login.php?ref=<?php echo $_SERVER[REQUEST_URI] ?>"></a>
+	<a id="btn_login" href="login.php?ref=<?php echo htmlspecialchars($_SERVER['REQUEST_URI']) ?>"></a>
 		<div class="clear"></div>
 <?php    
     }             

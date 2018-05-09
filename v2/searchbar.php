@@ -1,40 +1,16 @@
 <?php
-$searchKeyword = $_POST['keyword'];
-$keywordValue ="";
-if ($searchKeyword!=""){
-	$keywordValue="value='".$searchKeyword."'";
-}
-
-$searchPho_name = $_POST['pho_name'];
-$pho_nameValue ="";
-if ($searchPho_name!=""){
-	$pho_nameValue="value='".$searchPho_name."'";
-}
-
-$searchDestination = $_POST['destination'];
-$destinationValue ="";
-if ($searchDestination!=""){
-	$destinationValue="value='".$searchDestination."'";
-}
-
-$searchDate = $_POST['date'];
-$dateValue ="";
-if ($searchDate!=""){
-	$dateValue="value='".$searchDate."'";
-}
-
-$searchType = $_POST['type'];
-$typeValue ="";
-if ($searchType!=""){
-	$typeValue="value='".$searchType."'";
-}
+$keywordValue = isset($_POST['keyword']) ? $_POST['keyword'] : '';
+$pho_nameValue = isset($_POST['pho_name']) ? $_POST['pho_name'] : '';
+$destinationValue = isset($_POST['destination']) ? $_POST['destination'] : '';
+$dateValue = isset($_POST['date']) ? $_POST['date'] : '';
+$typeValue = isset($_POST['type']) ? $_POST['type'] : '';
 ?>
 <script>
 $( document ).ready(function() {
 	$('#buttonSearchBarSearch').click(function(){
 	//$('#amountvalue').val($( "#amount" ).val());
 	$('#amountvalueLow').val($( "#slider-range" ).slider( "values", 0 ));
-	$('#amountvalueHight').val($( "#slider-range" ).slider( "values", 1 ));
+	$('#amountvalueHigh').val($( "#slider-range" ).slider( "values", 1 ));
 	$('#searchbarForm').submit();
 	});
 });
@@ -49,17 +25,17 @@ $( document ).ready(function() {
 </style>
 <form action="search.php" method="post" id="searchbarForm">
 <ul>
-	<li><input name="destination" id="destination" placeholder="Destination" <?php echo $destinationValue ?> /></li>
-	<li><input name="date" id="date" placeholder="Date" size="10" <?php echo $dateValue ?> /></li>
-	<li><select name="Type" id="type">
+	<li><input name="destination" id="destination" placeholder="Destination" value="<?php echo htmlspecialchars($destinationValue) ?>" /></li>
+	<li><input name="date" id="date" placeholder="Date" size="10" value="<?php echo htmlspecialchars($dateValue) ?>" /></li>
+	<li><select name="type" id="type">
 					<option selected disabled>Type</option>
 					<option <?php if ($typeValue=="travel"){echo "selected";} ?> value="travel">Travel</option>
-					<option <?php if ($typeValue=="wedding"){echo "selected";} ?>value="wedding">Wedding</option>
-					<option <?php if ($typeValue=="others"){echo "selected";} ?>value="others">Others</option>
+					<option <?php if ($typeValue=="wedding"){echo "selected";} ?> value="wedding">Wedding</option>
+					<option <?php if ($typeValue=="others"){echo "selected";} ?> value="others">Others</option>
 				</select>
 		</li>		
-	<li><input name="pho_name" id="pho_name" placeholder="Photographer's name" <?php echo $pho_nameValue ?> /></li>
-	<li><input name="keyword" id="keyword" placeholder="Keyword" <?php echo $keywordValue ?> /></li>
+	<li><input name="pho_name" id="pho_name" placeholder="Photographer's name" value="<?php echo htmlspecialchars($pho_nameValue) ?>" /></li>
+	<li><input name="keyword" id="keyword" placeholder="Keyword" value="<?php echo htmlspecialchars($keywordValue) ?>" /></li>
 
   	<li><label for="amount">Price range:</label>
   <input type="text" id="amount" size="14" readonly style="border:0; color:#757575; font-weight:bold;">
@@ -67,7 +43,7 @@ $( document ).ready(function() {
  <div style="width:100px;display:inline:;padding-top:5px;float:right;margin-right:50px;">
 	<div id="slider-range" ></div>
 	<input type="hidden" name="amountvalueLow" id="amountvalueLow">
-	<input type="hidden" name="amountvalueHight" id="amountvalueHight">	
+	<input type="hidden" name="amountvalueHigh" id="amountvalueHigh">	
 </div>
 </li>
 																

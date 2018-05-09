@@ -1,3 +1,6 @@
+<?php if (session_status() == PHP_SESSION_NONE) {
+	session_start();
+} ?>
 				<div id=logoContainer>
 					<a href="index.php"><div id=logo></div></a>
 				</div>
@@ -7,17 +10,17 @@
 							
 <?php	
 
-	if ($_SESSION['username']!=""){					
-    	echo "Hello, ".$_SESSION['username'];		
+	if (isset($_SESSION['username'])){
+    	echo "Hello, ".htmlspecialchars($_SESSION['username']);
     	//echo "<form action=logout.php><button>Logout</button></form>";
-    	echo " | <a href=myreservation.php>My Reservation</a>";
-    	echo " | <a href=mymessage.php>My Message</a>";    	
-    	echo " | <a href=logout.php>Logout</a>";
+    	echo " | <a href=\"myreservation.php\">My Reservation</a>";
+    	echo " | <a href=\"mymessage.php\">My Message</a>";    	
+    	echo " | <a href=\"logout.php\">Logout</a>";
     	echo "<div class=\"clear\"></div>";
     }else{
 ?>
 	<a id="btn_register" href="#" ></a>
-	<a id="btn_login" href="login.php?ref=<?php echo $_SERVER[REQUEST_URI] ?>"></a>
+	<a id="btn_login" href="login.php?ref=<?php echo htmlspecialchars($_SERVER['REQUEST_URI']) ?>"></a>
 	
 	<a href="pho_login.php">Photographer login</a> |
 		<div class="clear"></div>

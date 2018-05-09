@@ -1,12 +1,7 @@
 <?php
-$amountvalueLow = $_POST['amountvalueLow'];
-$amountvalueHight = $_POST['amountvalueHight'];
-
-if($amountvalueLow!=""){
-$values = $amountvalueLow." , ".$amountvalueHight;
-}else{
-$values = "0, 500";
-}
+$amountvalueLow = isset($_POST['amountvalueLow']) ? $_POST['amountvalueLow'] : '0';
+$amountvalueHigh = isset($_POST['amountvalueHigh']) ? $_POST['amountvalueHigh'] : '500';
+$values = "$amountvalueLow, $amountvalueHigh";
 ?>
 <!-- Range slider-->
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -19,7 +14,7 @@ $values = "0, 500";
       range: true,
       min: 0,
       max: 5000,
-      values: [ <?php echo $values;?> ],
+      values: [ <?php echo htmlspecialchars($values);?> ],
       swipeThreshold: 500,
       slide: function( event, ui ) {
         $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );

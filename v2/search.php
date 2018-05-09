@@ -33,17 +33,18 @@ $db = new PDO('sqlite:db/photopeoples.sqlite');
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
 				
 				
-$searchKeyword = $_POST['keyword'];
-if ($searchKeyword!=""){
+if (isset($_POST['keyword'])){
+	$searchKeyword = $_POST['keyword'];
 	$criteria .= "AND (name like '%".$searchKeyword."%' OR nationalty like '%".$searchKeyword."%' OR style like '%".$searchKeyword."%') ";
 }
 
-$searchPho_name = $_POST['pho_name'];
-if ($searchPho_name!=""){
+if (isset($_POST['pho_name'])){
+	$searchPho_name = $_POST['pho_name'];
 	$criteria .= " AND (name like '%".$searchPho_name."%') ";
 }
-$searchDestination = $_POST['destination'];
-if ($searchDestination!=""){
+
+if (isset($_POST['destination'])){
+	$searchDestination = $_POST['destination'];
 	$criteria .= " AND (nationalty like '%".$searchDestination."%') ";
 }
 //$searchDate = $_POST['date'];

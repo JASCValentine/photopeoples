@@ -154,7 +154,7 @@ foreach($result as $row) {
                   $_SESSION['cust_id'] = $cust_id;                  
                  
 				//echo "<script>window.location.replace('event_details.php?ref=".$_POST['ref']."')</script>";
-				echo "<script>window.location.replace('".$_POST['ref']."')</script>";
+				echo "<script>window.location.replace('".(isset($_POST['ref']) ? htmlspecialchars($_POST['ref']) : 'index.php')."')</script>";
 
                   
                   //echo 'You have entered valid use name and password';
@@ -180,7 +180,7 @@ foreach($result as $row) {
                <br />
             <button class = "btn btn-lg btn-primary btn-block" type = "submit" 
                name = "login">Login</button>
-               <input type="hidden" name=ref id=ref value="<?php echo $_GET['ref'];?>">
+               <input type="hidden" name=ref id=ref value="<?php echo htmlspecialchars($_REQUEST['ref']);?>">
          </form>
 			
          

@@ -37,7 +37,7 @@ $reservationContent.="<div class=css_td>".$app_id."</div>\n";
 	$result2 = $stmt2->fetchAll();
 
 	foreach($result2 as $row2) {
-		$pho_name = $row2[name];
+		$pho_name = $row2['name'];
 	}
 $reservationContent.="<div class=css_td>".$pho_name."</div>\n";
 $reservationContent.="<div class=css_td>".$row['start']."</div>\n";
